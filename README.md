@@ -1,4 +1,4 @@
-# 🚀 gRPC Terminal Chat Application
+#  gRPC Terminal Chat Application
 
 ![Tensor Link](tensor-link.png)
 
@@ -25,16 +25,6 @@ Instead of building everything at once, the project is developed in multiple pha
 - Private Messaging
 - Docker Deployment
 - Horizontal Scaling
-
----
-
-# Architecture
-
-> High-Level System Architecture
-
-![Architecture](docs/architecture.png)
-
----
 
 # Features
 
