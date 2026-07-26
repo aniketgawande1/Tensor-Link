@@ -83,37 +83,76 @@ Instead of building everything at once, the project is developed in multiple pha
 # Project Structure
 
 ```text
-grpc-chat/
-
-│
-
-├── client/
-│   ├── client.py
-│   ├── input_handler.py
-│   ├── output_handler.py
-│
-├── server/
-│   ├── server.py
-│   ├── room_manager.py
-│   ├── client_manager.py
-│   ├── broadcaster.py
-│   ├── auth.py
-│   └── history.py
+grpc-terminal-chat/
 │
 ├── proto/
-│   └── chat.proto
+│   ├── chat.proto
+│   ├── auth.proto
+│   ├── room.proto
+│   ├── user.proto
+│   ├── common.proto
+│   └── health.proto
 │
 ├── generated/
 │   ├── chat_pb2.py
-│   └── chat_pb2_grpc.py
+│   ├── chat_pb2_grpc.py
+│   ├── auth_pb2.py
+│   ├── auth_pb2_grpc.py
+│   └── ...
+│
+├── server/
+│   ├── server.py
+│   ├── grpc_server.py
+│   ├── bootstrap.py
+│   │
+│   ├── services/
+│   │   ├── auth_service.py
+│   │   ├── chat_service.py
+│   │   ├── room_service.py
+│   │   ├── presence_service.py
+│   │   ├── history_service.py
+│   │   └── health_service.py
+│   │
+│   ├── managers/
+│   │   ├── connection_manager.py
+│   │   ├── room_manager.py
+│   │   └── session_manager.py
+│   │
+│   ├── repositories/
+│   │   ├── user_repository.py
+│   │   ├── room_repository.py
+│   │   └── message_repository.py
+│   │
+│   ├── database/
+│   │   ├── models.py
+│   │   ├── session.py
+│   │   └── migrations/
+│   │
+│   ├── redis/
+│   │   ├── publisher.py
+│   │   ├── subscriber.py
+│   │   └── cache.py
+│   │
+│   ├── auth/
+│   │   ├── jwt.py
+│   │   └── password.py
+│   │
+│   └── utils/
+│       ├── config.py
+│       ├── logger.py
+│       └── constants.py
+│
+├── client/
+│   ├── client.py
+│   ├── terminal.py
+│   ├── input_handler.py
+│   ├── output_renderer.py
+│   ├── grpc_client.py
+│   └── commands.py
 │
 ├── tests/
-│
-├── docs/
-│   └── architecture.png
-│
+├── docker-compose.yml
 ├── requirements.txt
-│
 └── README.md
 ```
 
@@ -425,18 +464,11 @@ This project demonstrates:
 - Read Receipts
 - Push Notifications
 
----
-
-# License
-
-MIT License
-
----
 
 # Author
 
-**Your Name**
+Aniket Gawande
 
 Backend Engineer | Python | gRPC | Distributed Systems
 
-GitHub: https://github.com/yourusername
+GitHub: https://github.com/aniketgawande1
